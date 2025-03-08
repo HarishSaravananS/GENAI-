@@ -1,0 +1,15 @@
+Below is a table summarizing the basic components of Flask, including a brief description, example usage, and their primary purpose:
+
+| **Component**       | **Description**                                             | **Usage/Example**                                               | **Purpose/Notes**                                              |
+|---------------------|-------------------------------------------------------------|-----------------------------------------------------------------|----------------------------------------------------------------|
+| **Flask App**       | The main application object that initializes your app.    | `app = Flask(__name__)`                                          | Sets up configuration, routing, and the application context.   |
+| **Route**           | URL pattern mapped to a view (function) to handle requests. | `@app.route('/')`<br>`def home(): return "Hello, Flask!"`       | Defines endpoints that clients can call.                       |
+| **Request**         | Object that encapsulates the client’s HTTP request data.    | `data = request.get_json()`                                      | Accesses form data, JSON payloads, query parameters, etc.      |
+| **jsonify**         | Utility to convert Python dictionaries into JSON responses. | `return jsonify({"message": "Hello, World!"})`                   | Ensures responses have the correct JSON format and headers.    |
+| **render_template** | Renders HTML templates using the Jinja2 templating engine.  | `return render_template('index.html')`                           | Generates dynamic HTML pages by embedding Python data.         |
+| **Blueprint**       | Modular component for organizing related routes and views.  | `bp = Blueprint('auth', __name__)`<br>`@bp.route('/login')`       | Helps in structuring large applications into reusable modules. |
+| **Error Handler**   | Custom function to handle specific HTTP errors.             | `@app.errorhandler(404)`<br>`def not_found(e): return "404 Error", 404` | Provides user-friendly error messages and custom error pages.    |
+| **Config**          | Dictionary for application configuration settings.        | `app.config['DEBUG'] = True`<br>`app.config.from_pyfile('config.py')` | Manages environment-specific settings and configurations.       |
+| **WSGI Interface**  | The protocol Flask uses to communicate with web servers.    | *Implicit in Flask usage; deployed with servers like Gunicorn*   | Ensures compatibility with WSGI-compliant servers for deployment. |
+
+This table provides a quick overview of the key components you'll work with when developing applications using Flask.
